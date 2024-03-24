@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <h1 class="animate__animated animate__bounce">Recipe Recommender</h1>
+    </header>
+
+    <section class="recipe-selection animate__animated animate__fadeInUp">
+    <h2>Choose a Recipe:</h2>
+    <form action="/recommend" method="POST" id="recommend-form">
+        <div class="search-container">
+            <input type="text" list="recipe-options" id="selected-recipe" name="selected_recipe" placeholder="Type or select a recipe">
+            <a href="/dashboard" class="refresh-btn">Refresh</a> <!-- Empty anchor tag for the refresh button -->
+        </div>
+        <datalist id="recipe-options">
+            {% for recipe in recipe_list %}
+            <option value="{{ recipe }}">
+            {% endfor %}
+        </datalist>
+        <button type="submit" class="animate__animated animate__heartBeat">Recommend</button>
+    </form>
+</section>
+
+    <section class="recommended-recipes animate__animated animate__fadeIn">
+        <h2>Recommended Recipes:</h2>
+        <div class="recipe-container">
+            {% for recommended_recipe in recommended_recipe %}
+            <div class="recipe-card">
+                <img src="{{ recommended_recipe.image_url }}" alt="{{ recommended_recipe.title }}" class="recipe-image">
+                <div class="recipe-details">
+                    <h3 class="recipe-title">{{ recommended_recipe.title }}</h3>
+                    <a href="{{ recommended_recipe.link }}" class="recipe-link">Visit Recipe</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="animate__animated animate__fadeInUp">
+        <p>OOPS Project made by Sudhanshu & Asmit Rawat</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

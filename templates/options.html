@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .option {
+            width: 250px;
+            height: 250px;
+            background-color: #ffffff;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .option h2 {
+            font-size: 1.5rem;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .option p {
+            font-size: 1rem;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+        .option a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .option a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="option">
+            <h2>Recommender System</h2>
+            <p>Find your matching recipes!</p>
+            <a href="/redirect_option1"> GO </a>
+        </div>
+        <div class="option">
+            <h2>Execute Training Pipeline</h2>
+            <p>Train the model</p>
+            <a href="/execute_pipeline"> TRAIN </a>
+        </div>
+        <div class="option">
+            <h2>Add a New Recipe</h2>
+            <p>Wanna add something new to our Dataset?</p>
+            <a href="/add_recipe"> ADD </a>
+        </div>
+    </div>
+</body>
+</html>
